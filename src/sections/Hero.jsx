@@ -59,7 +59,7 @@ export default function Hero() {
         {/* Quick facts */}
         <dl style={{ '--delay': '260ms' }} className="enter mt-12 grid gap-3 sm:grid-cols-3">
           {facts.map((fact) => (
-            <div key={fact.term} className="rounded-xl border border-line bg-surface p-4">
+            <div key={fact.term} className="rounded-xl border border-line p-4">
               <dt className="font-mono text-xs text-muted">{fact.term}</dt>
               <dd className="mt-1 text-sm font-medium">{fact.value}</dd>
             </div>
