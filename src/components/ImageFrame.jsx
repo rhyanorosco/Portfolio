@@ -12,7 +12,7 @@ export default function ImageFrame({ item, figure, ratio = 'aspect-video', onOpe
           type="button"
           onClick={() => onOpen?.(item, figure)}
           aria-label={`Enlarge ${figure ? `${figure}: ` : ''}${item.title}`}
-          className="group block overflow-hidden rounded border border-line bg-surface"
+          className="group block overflow-hidden rounded-lg border border-line bg-surface"
         >
           <img
             src={item.image}

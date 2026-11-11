@@ -16,7 +16,7 @@ export default function Status({ data }) {
       <dl className="max-w-prose space-y-6">
         {rows.map((row) => (
           <div key={row.term}>
-            <dt className="font-mono text-xs uppercase tracking-widest text-muted">{row.term}</dt>
+            <dt className="text-xs font-semibold uppercase tracking-[0.08em] text-muted">{row.term}</dt>
             <dd className={`mt-1 ${row.large ? 'text-lg' : ''} ${muted(row.value)}`}>{row.value}</dd>
           </div>
         ))}

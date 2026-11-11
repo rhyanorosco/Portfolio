@@ -1,29 +1,30 @@
+import BentoCard from './BentoCard.jsx'
 import { isMissing } from '../utils/content'
 
-// Shows a link when the value is real, or the plain placeholder text when it isn't yet.
+// Contact card: shows a link when the value is real, or the placeholder text when it isn't yet.
 export default function ContactLink({ icon: Icon, label, value, href }) {
   const missing = isMissing(value)
   const external = href?.startsWith('http')
 
   return (
-    <li className="flex items-center gap-4 border-b border-line py-4 last:border-b-0">
-      <span className="grid h-10 w-10 shrink-0 place-items-center rounded border border-line text-primary">
+    <BentoCard as="li" className="flex items-center gap-4">
+      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-badge text-primary-strong">
         <Icon size={18} aria-hidden="true" />
       </span>
       <div className="min-w-0">
-        <p className="font-mono text-xs uppercase tracking-widest text-muted">{label}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted">{label}</p>
         {missing ? (
-          <p className="italic text-muted">{value || `[ADD ${label.toUpperCase()}]`}</p>
+          <p className="mt-0.5 italic text-muted">{value || `[ADD ${label.toUpperCase()}]`}</p>
         ) : (
           <a
             href={href}
-            className="break-words text-ink hover:text-primary hover:underline"
+            className="mt-0.5 block break-words font-medium text-ink hover:text-primary hover:underline"
             {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
           >
             {value}
           </a>
         )}
       </div>
-    </li>
+    </BentoCard>
   )
 }

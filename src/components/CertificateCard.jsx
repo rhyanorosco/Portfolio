@@ -1,12 +1,13 @@
+import BentoCard from './BentoCard.jsx'
 import Placeholder from './Placeholder.jsx'
 import { isMissing } from '../utils/content'
 
 export default function CertificateCard({ cert }) {
-  const muted = (value) => (isMissing(value) ? 'italic text-muted' : '')
+  const muted = (value) => (isMissing(value) ? 'italic' : '')
 
   return (
-    <article className="flex flex-col overflow-hidden rounded border border-line bg-surface">
-      <div className="border-b border-line">
+    <BentoCard as="article" padded={false} className="flex flex-col p-3">
+      <div className="overflow-hidden rounded-lg border border-line">
         {cert.image ? (
           <img
             src={cert.image}
@@ -18,12 +19,12 @@ export default function CertificateCard({ cert }) {
           <Placeholder label="[ADD CERTIFICATE IMAGE]" ratio="aspect-[4/3]" bare />
         )}
       </div>
-      <div className="p-4">
-        <h3 className={`font-semibold ${muted(cert.title)}`}>{cert.title}</h3>
+      <div className="px-2 pb-2 pt-4">
+        <h3 className={`font-medium ${muted(cert.title) && 'italic text-muted'}`}>{cert.title}</h3>
         <p className={`mt-1 text-sm text-muted ${muted(cert.issuer)}`}>{cert.issuer}</p>
-        <p className={`mt-1 font-mono text-xs text-muted ${muted(cert.date)}`}>{cert.date}</p>
-        {cert.description && <p className="mt-3 text-sm">{cert.description}</p>}
+        <p className={`mt-2 font-mono text-xs text-muted ${muted(cert.date)}`}>{cert.date}</p>
+        {cert.description && <p className="mt-3 text-sm text-muted">{cert.description}</p>}
       </div>
-    </article>
+    </BentoCard>
   )
 }

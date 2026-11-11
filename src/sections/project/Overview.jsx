@@ -6,10 +6,10 @@ export default function Overview({ data }) {
     <CaseSection id="overview" number="01" label="Overview" title="What the system is for">
       <div className="grid gap-8 xl:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] xl:gap-12">
         <p className="max-w-prose text-lg">{data.summary}</p>
-        <dl className="rounded border border-line bg-surface px-5">
+        <dl className="rounded-xl border border-line bg-surface transition-colors duration-150 hover:border-primary-strong/40 px-5">
           {data.facts.map((fact) => (
             <div key={fact.term} className="grid grid-cols-[7rem_minmax(0,1fr)] gap-4 border-b border-line py-3 last:border-b-0">
-              <dt className="pt-0.5 font-mono text-[11px] uppercase tracking-widest text-muted">{fact.term}</dt>
+              <dt className="pt-0.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted">{fact.term}</dt>
               <dd className={`text-sm ${isMissing(fact.value) ? 'italic text-muted' : ''}`}>{fact.value}</dd>
             </div>
           ))}

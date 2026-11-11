@@ -22,17 +22,16 @@ const caseIds = caseSections.map((s) => s.id)
 function SectionIndex({ active, onNavigate }) {
   return (
     <ol className="space-y-0.5 text-sm">
-      {caseSections.map((s, i) => (
+      {caseSections.map((s) => (
         <li key={s.id}>
           <Link
             to={`#${s.id}`}
             onClick={onNavigate}
             aria-current={active === s.id ? 'location' : undefined}
             className={`flex gap-3 border-l-2 py-1 pl-3 transition-colors ${
-              active === s.id ? 'border-primary font-medium text-ink' : 'border-transparent text-muted hover:text-ink'
+              active === s.id ? 'border-primary-strong font-medium text-primary' : 'border-transparent text-muted hover:text-ink'
             }`}
           >
-            <span className="font-mono text-xs leading-5 text-primary">{String(i + 1).padStart(2, '0')}</span>
             {s.label}
           </Link>
         </li>
@@ -53,22 +52,22 @@ export default function ProjectMarysAngel() {
       </Link>
 
       <header className="mt-8 max-w-4xl">
-        <p className="font-mono text-xs uppercase tracking-widest text-accent">Case study · {data.label}</p>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">{data.title}</h1>
+        <p className="text-xs font-semibold uppercase tracking-[0.08em] text-primary">Case study · {data.label}</p>
+        <h1 className="mt-3 text-[1.875rem] font-bold leading-[1.15] tracking-[-0.02em] sm:text-[2.25rem]">{data.title}</h1>
         <p className="mt-3 text-muted">{data.location}</p>
       </header>
 
       <div className="mt-10">
         {data.cover ? (
-          <img src={data.cover} alt={`Screenshot of ${data.title}`} className="aspect-video w-full rounded border border-line object-cover" />
+          <img src={data.cover} alt={`Screenshot of ${data.title}`} className="aspect-video w-full rounded-xl border border-line object-cover" />
         ) : (
           <Placeholder label="[ADD COVER SCREENSHOT]" ratio="aspect-video md:aspect-[21/9]" />
         )}
       </div>
 
       {/* Section index for phones and tablets */}
-      <details ref={mobileIndex} className="mt-10 rounded border border-line bg-surface lg:hidden">
-        <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 font-mono text-xs uppercase tracking-widest text-muted [&::-webkit-details-marker]:hidden">
+      <details ref={mobileIndex} className="mt-10 rounded-xl border border-line bg-surface lg:hidden">
+        <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 text-xs font-semibold uppercase tracking-[0.08em] text-muted [&::-webkit-details-marker]:hidden">
           On this page <ChevronDown size={16} aria-hidden="true" />
         </summary>
         <nav aria-label="Case study sections" className="border-t border-line px-4 py-3">
@@ -79,7 +78,7 @@ export default function ProjectMarysAngel() {
       <div className="mt-10 grid gap-12 lg:mt-16 lg:grid-cols-[12rem_minmax(0,1fr)]">
         <aside className="hidden lg:block">
           <nav aria-label="Case study sections" className="sticky top-24">
-            <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted">On this page</p>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.08em] text-muted">On this page</p>
             <SectionIndex active={active} />
           </nav>
         </aside>

@@ -1,5 +1,6 @@
 import CaseSection from '../../components/CaseSection.jsx'
 import StatusBadge from '../../components/StatusBadge.jsx'
+import Badge from '../../components/Badge.jsx'
 
 const groups = [
   { status: 'confirmed', title: 'In use' },
@@ -21,17 +22,17 @@ export default function TechStack({ items }) {
           const list = items.filter((t) => t.status === group.status)
           if (!list.length && group.hideWhenEmpty) return null
           return (
-            <div key={group.status} className="rounded border border-line bg-surface p-5">
+            <div key={group.status} className="rounded-xl border border-line bg-surface p-5 transition-colors duration-150 hover:border-primary-strong/40">
               <div className="flex items-center justify-between gap-2">
-                <h3 className="font-semibold">{group.title}</h3>
+                <h3 className="font-medium">{group.title}</h3>
                 <StatusBadge status={group.status} />
               </div>
               {list.length ? (
-                <ul className="mt-4">
+                <ul className="mt-4 space-y-2.5">
                   {list.map((tech) => (
-                    <li key={tech.name} className="flex items-baseline justify-between gap-3 border-b border-line py-2 text-sm last:border-b-0">
-                      <span>{tech.name}</span>
-                      <span className="font-mono text-[11px] uppercase tracking-widest text-muted">{tech.category}</span>
+                    <li key={tech.name} className="flex flex-wrap items-center justify-between gap-2">
+                      <Badge>{tech.name}</Badge>
+                      <span className="font-mono text-xs text-muted">{tech.category}</span>
                     </li>
                   ))}
                 </ul>

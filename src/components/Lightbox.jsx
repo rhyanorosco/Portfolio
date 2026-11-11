@@ -18,7 +18,7 @@ export default function Lightbox({ item, figure, onClose }) {
       onClose={onClose}
       onClick={(e) => e.target === ref.current && ref.current.close()}
       aria-label={item ? item.title : 'Image viewer'}
-      className="m-auto w-[min(96vw,80rem)] max-w-none rounded border border-line bg-surface p-0 text-ink backdrop:bg-black/75"
+      className="m-auto w-[min(96vw,80rem)] max-w-none rounded-xl border border-line bg-surface p-0 text-ink backdrop:bg-black/75"
     >
       {item && (
         <figure>
@@ -31,7 +31,7 @@ export default function Lightbox({ item, figure, onClose }) {
               type="button"
               onClick={() => ref.current.close()}
               aria-label="Close image"
-              className="grid h-8 w-8 place-items-center rounded border border-line hover:border-primary"
+              className="grid h-9 w-9 place-items-center rounded-lg border border-line hover:bg-surface-2"
             >
               <X size={16} aria-hidden="true" />
             </button>

@@ -1,4 +1,5 @@
 import CaseSection from '../../components/CaseSection.jsx'
+import Badge from '../../components/Badge.jsx'
 import { isMissing } from '../../utils/content'
 
 export default function Role({ data, team }) {
@@ -7,12 +8,12 @@ export default function Role({ data, team }) {
       <div className="max-w-prose">
         <p className={isMissing(data.summary) ? 'italic text-muted' : ''}>{data.summary}</p>
         {!isMissing(team) && <p className="mt-2 text-sm text-muted">Team: {team}</p>}
-        <h3 className="mt-8 font-mono text-xs uppercase tracking-widest text-muted">Responsibilities</h3>
+        <h3 className="mt-8 text-xs font-semibold uppercase tracking-[0.08em] text-muted">Responsibilities</h3>
         {data.areas.length > 0 ? (
           <ul className="mt-3 flex flex-wrap gap-2">
             {data.areas.map((area) => (
-              <li key={area} className="rounded-sm border border-line bg-surface px-3 py-1 text-sm">
-                {area}
+              <li key={area}>
+                <Badge>{area}</Badge>
               </li>
             ))}
           </ul>

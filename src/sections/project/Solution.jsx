@@ -19,12 +19,12 @@ export default function Solution({ rows }) {
       title="How each problem maps to a feature"
       intro="How the system’s features respond to the clinic’s needs."
     >
-      <div className="overflow-hidden rounded border border-line bg-surface">
+      <div className="overflow-hidden rounded-xl border border-line bg-surface">
         <div aria-hidden="true" className={`hidden border-b border-line px-5 py-3 ${grid}`}>
           {columns.map((col, i) => (
             <Fragment key={col.key}>
               {i > 0 && <span />}
-              <span className="font-mono text-[11px] uppercase tracking-widest text-muted">{col.label}</span>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted">{col.label}</span>
             </Fragment>
           ))}
         </div>
@@ -40,7 +40,7 @@ export default function Solution({ rows }) {
                     </span>
                   )}
                   <p
-                    className={`text-sm ${col.key === 'feature' ? 'font-medium' : ''} ${
+                    className={`text-sm ${col.key === 'feature' ? 'font-medium text-primary' : ''} ${
                       isMissing(row[col.key]) ? 'italic text-muted' : ''
                     }`}
                   >

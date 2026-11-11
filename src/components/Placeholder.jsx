@@ -2,7 +2,7 @@ import { ImageIcon } from 'lucide-react'
 
 // Marks where a real image (screenshot, photo, certificate) will go.
 export default function Placeholder({ label, ratio = 'aspect-video', bare = false, className = '' }) {
-  const frame = bare ? '' : 'rounded border border-dashed border-line'
+  const frame = bare ? '' : 'rounded-lg border border-dashed border-line'
   return (
     <div
       role="img"

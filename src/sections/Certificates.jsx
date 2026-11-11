@@ -16,8 +16,8 @@ export default function Certificates() {
 
   return (
     <Section id="certificates" labelledBy="certificates-title">
-      <SectionTitle id="certificates-title" number="05" label="Certificates" title="Certificates" />
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <SectionTitle id="certificates-title" label="Certificates" title="Certificates" />
+      <div className="mt-10 grid gap-3 sm:grid-cols-2 md:gap-4 lg:grid-cols-3">
         {items.map((cert, i) => (
           <CertificateCard key={cert.id ?? `${cert.title}-${i}`} cert={cert} />
         ))}

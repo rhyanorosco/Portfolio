@@ -11,7 +11,7 @@ export default function ThemeToggle() {
       onClick={toggleTheme}
       aria-label={`Switch to ${next} mode`}
       title={`Switch to ${next} mode`}
-      className="grid h-9 w-9 place-items-center rounded border border-line text-muted hover:border-primary hover:text-ink"
+      className="grid h-10 w-10 place-items-center rounded-lg border border-line text-muted transition-colors hover:bg-surface-2 hover:text-ink"
     >
       {theme === 'dark' ? <Sun size={16} aria-hidden="true" /> : <Moon size={16} aria-hidden="true" />}
     </button>
