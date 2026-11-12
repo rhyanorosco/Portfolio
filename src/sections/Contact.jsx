@@ -20,13 +20,6 @@ export default function Contact() {
           school projects, or anything you see in this portfolio.
         </p>
 
-        <a
-          href={`mailto:${profile.email}`}
-          className="text-gradient mt-8 inline-block break-all font-display text-xl font-semibold hover:opacity-80 md:text-2xl"
-        >
-          {profile.email}
-        </a>
-
         <ul className="mt-8 grid gap-3 sm:grid-cols-3">
           {links.map(({ label, icon: Icon, value, href }) => {
             const external = href.startsWith('http')
