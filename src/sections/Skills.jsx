@@ -1,6 +1,17 @@
 import Section from '../components/Section.jsx'
 import Logo from '../components/Logo.jsx'
 import { skillGroups } from '../data/skills'
+import { toolIcons } from '../data/toolIcons'
+
+function ToolIcon({ name }) {
+  const icon = toolIcons[name]
+  if (!icon) return null
+  return (
+    <svg viewBox={icon.viewBox} width="16" height="16" fill={icon.color} aria-hidden="true" className="shrink-0">
+      <path d={icon.path} />
+    </svg>
+  )
+}
 
 export default function Skills() {
   const tools = skillGroups.flatMap((g) => g.items.map((item) => ({ item, group: g.title })))
@@ -18,8 +29,9 @@ export default function Skills() {
             <li
               key={item}
               title={group}
-              className="glass rounded-full px-4 py-2 font-mono text-xs text-badge-ink transition-colors hover:text-ink"
+              className="glass inline-flex items-center gap-2 rounded-full px-4 py-2 font-mono text-xs text-badge-ink transition-colors hover:text-ink"
             >
+              <ToolIcon name={item} />
               {item}
             </li>
           ))}
