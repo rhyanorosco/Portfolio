@@ -1,9 +1,11 @@
 import marysAngelCover from '../assets/screenshots/marys-angel-cover.webp'
+import digitalClockCover from '../assets/screenshots/live-digital-clock.webp'
 
 // Summary used on the Home page. The full case study comes in Phase 4.
 export const featuredProject = {
   slug: 'marys-angel',
-  label: 'Main project',
+  link: 'https://web-mabh-system.vercel.app/', // live system
+  label: 'Capstone Project',
   title: 'An Automated Web and Mobile Appointment System for Mary’s Angel Birthing Home',
   location: 'Taysan, Legazpi City',
   summary:
@@ -20,3 +22,25 @@ export const featuredProject = {
   status: '[ADD PROJECT STATUS]',
   cover: marysAngelCover, // Landing page screenshot
 }
+
+// Other projects. While this list is empty, the "View more projects" link on the Home page stays hidden.
+// Add one object per project, for example:
+// import todoCover from '../assets/screenshots/todo-app.webp'
+// {
+//   title: 'To-do List App',
+//   summary: 'One or two sentences about what it does and who it is for.',
+//   tags: ['React', 'Tailwind CSS'],
+//   cover: todoCover,                         // or null
+//   link: 'https://your-demo.vercel.app',     // optional live demo
+//   github: 'https://github.com/rhyanorosco/repo-name', // optional
+// },
+export const moreProjects = [
+  {
+    title: 'Live Digital Clock',
+    summary:
+      'A digital clock that shows the current time and updates every second. It has Start and Stop buttons to pause the clock, and lets you switch between 12-hour and 24-hour format.',
+    tags: ['React', 'Tailwind CSS', 'Vite'],
+    cover: digitalClockCover,
+    github: 'https://github.com/rhyanorosco/Live-Digital-Clock',
+  },
+]

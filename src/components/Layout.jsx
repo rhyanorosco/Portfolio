@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Navbar from './Navbar.jsx'
 import Footer from './Footer.jsx'
+import NetworkBackground from './NetworkBackground.jsx'
 
 export default function Layout() {
   const { pathname, hash, key } = useLocation()
@@ -20,6 +21,7 @@ export default function Layout() {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <NetworkBackground />
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-surface focus:px-3 focus:py-2 focus:text-sm"

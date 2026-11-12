@@ -1,8 +1,8 @@
-import { ArrowRight, Monitor, Smartphone } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Monitor, Smartphone } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Section from '../components/Section.jsx'
 import Placeholder from '../components/Placeholder.jsx'
-import { featuredProject as project } from '../data/project'
+import { featuredProject as project, moreProjects } from '../data/project'
 
 // Browser-window frame around the project screenshot.
 function BrowserFrame() {
@@ -38,8 +38,8 @@ export default function FeaturedProject() {
           {/* Text + overlapping card */}
           <div className="relative z-10 lg:col-span-6">
             <p className="text-sm text-primary">{project.label}</p>
-            <h2 id="project-title" className="mt-1 text-2xl font-semibold leading-tight md:text-[2rem]">
-              Mary’s Angel Appointment System
+            <h2 id="project-title" className="mt-1 text-xl font-semibold leading-snug md:text-2xl">
+              AN AUTOMATED WEB AND MOBILE APPOINTMENT SYSTEM FOR MARY’S ANGEL BIRTHING HOME IN TAYSAN, LEGAZPI CITY
             </h2>
             <p className="mt-2 text-sm text-muted">{project.location}</p>
 
@@ -60,12 +60,24 @@ export default function FeaturedProject() {
                 <Monitor size={18} aria-hidden="true" />
                 <Smartphone size={18} aria-hidden="true" />
               </span>
-              <Link
-                to={`/projects/${project.slug}`}
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-ink"
-              >
-                Read the case study <ArrowRight size={16} aria-hidden="true" />
-              </Link>
+              {project.link && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-gradient inline-flex min-h-10 items-center gap-1.5 rounded-full px-5 text-sm font-semibold transition"
+                >
+                  Visit the system <ArrowUpRight size={16} aria-hidden="true" />
+                </a>
+              )}
+              {moreProjects.length > 0 && (
+                <Link
+                  to="/projects"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-ink"
+                >
+                  View more projects <ArrowRight size={16} aria-hidden="true" />
+                </Link>
+              )}
             </div>
           </div>
 

@@ -14,7 +14,7 @@ export default function CertificateCard({ cert }) {
               src={cert.image}
               alt={`Certificate: ${cert.title}`}
               loading="lazy"
-              className={`w-full bg-white object-cover ${cert.portrait ? 'aspect-[3/4] object-top' : 'aspect-[4/3]'}`}
+              className={`w-full bg-white object-cover ${cert.portrait ? 'h-auto' : 'aspect-[4/3]'}`}
             />
           </a>
         ) : (

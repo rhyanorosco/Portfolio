@@ -25,6 +25,11 @@ export function useActiveSection(ids, offset = 120) {
       for (const section of sections) {
         if (section.getBoundingClientRect().top - offset <= 0) current = section.id
       }
+      // At the very top of the page, the first section (Home) is always the active one.
+      if (window.scrollY < 10) {
+        setActive(sections[0].id)
+        return
+      }
       const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2
       if (atBottom) {
         // Sections near the end can't scroll to the top. Prefer the one the user just navigated to.
@@ -39,12 +44,15 @@ export function useActiveSection(ids, offset = 120) {
     }
 
     update()
+    // Re-check once images and fonts have loaded, since they change section positions.
+    window.addEventListener('load', onScroll)
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', onScroll)
     return () => {
       cancelAnimationFrame(frame)
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onScroll)
+      window.removeEventListener('load', onScroll)
     }
   }, [key, offset])
 

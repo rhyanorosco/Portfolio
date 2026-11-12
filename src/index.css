@@ -164,6 +164,16 @@
 .spin-slower {
   animation: spin-slow 70s linear infinite reverse;
 }
+/* Twinkling stars (skills section) */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.9; transform: scale(1) rotate(0deg); }
+  50% { opacity: 0.15; transform: scale(0.45) rotate(45deg); }
+}
+.twinkle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: twinkle 3s ease-in-out infinite both;
+}
 @keyframes pulse-glow {
   50% { opacity: 0.65; transform: scale(1.06); }
 }
