@@ -9,7 +9,7 @@ function Avatar() {
   return (
     <div className="relative shrink-0">
       <div className="glow -inset-6" aria-hidden="true" />
-      <div className="relative h-28 w-28 rounded-full bg-gradient-to-br from-[#c4b5fd] via-[#8b5cf6] to-[#e879f9] p-[3px] sm:h-32 sm:w-32">
+      <div className="relative h-28 w-28 overflow-hidden rounded-full sm:h-32 sm:w-32">
         {profile.photo ? (
           <img
             src={profile.photo}
