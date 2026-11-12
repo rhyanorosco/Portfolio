@@ -5,9 +5,10 @@ export const profile = {
   field: 'Information Technology',
   program: 'Information Technology',
   school: 'Computer Arts and Technological College, Inc.',
-  email: '[ADD EMAIL]',
-  github: '[ADD GITHUB]',
-  linkedin: '[ADD LINKEDIN]',
+  email: 'oroscorhyan@gmail.com',
+  github: 'https://github.com/rhyanorosco',
+  phone: '09491905661',
+  phoneHref: 'tel:+639491905661',
   otherLinks: [], // e.g. { label: 'Facebook Page', url: 'https://...' }
   photo: null, // [ADD PROFILE PHOTO] — import from src/assets/profile/
 }

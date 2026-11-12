@@ -1,70 +1,93 @@
 import { ArrowRight } from 'lucide-react'
-import Button from '../components/Button.jsx'
-import Placeholder from '../components/Placeholder.jsx'
+import { Link } from 'react-router-dom'
 import { profile } from '../data/profile'
+import { useTypewriter } from '../hooks/useTypewriter'
 
-const facts = [
-  { term: 'Program', value: profile.program },
-  { term: 'School', value: profile.school },
-  { term: 'Main project', value: 'Mary’s Angel Appointment System' },
-]
+const roles = ['an IT Student.', 'a Student Developer.', 'a System Designer.']
+
+function Avatar() {
+  return (
+    <div className="relative shrink-0">
+      <div className="glow -inset-6" aria-hidden="true" />
+      <div className="relative h-28 w-28 rounded-full bg-gradient-to-br from-[#c4b5fd] via-[#8b5cf6] to-[#e879f9] p-[3px] sm:h-32 sm:w-32">
+        {profile.photo ? (
+          <img
+            src={profile.photo}
+            alt={`Portrait of ${profile.name}`}
+            className="h-full w-full rounded-full object-cover"
+          />
+        ) : (
+          <div
+            role="img"
+            aria-label="Profile photo placeholder"
+            className="grid h-full w-full place-items-center rounded-full bg-surface font-display text-3xl font-semibold text-primary"
+          >
+            RO
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
 
 export default function Hero() {
-  return (
-    <section id="home" aria-labelledby="hero-title" className="pb-16 pt-10 md:pb-24 md:pt-20">
-      <div className="container-page">
-        <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-16">
-          {/* Text */}
-          <div className="order-2 lg:order-1">
-            <p className="enter text-xs font-semibold uppercase tracking-[0.08em] text-primary">
-              {profile.field} Student
-            </p>
-            <h1
-              id="hero-title"
-              style={{ '--delay': '60ms' }}
-              className="enter mt-3 text-[1.875rem] font-bold leading-[1.15] tracking-[-0.02em] sm:text-[2.25rem]"
-            >
-              Hi, I’m {profile.name}.
-            </h1>
-            <p style={{ '--delay': '120ms' }} className="enter mt-5 max-w-xl text-lg text-muted">
-              I analyze problems, design information systems, and build web and mobile applications for real-world
-              needs — starting with an appointment system for a local birthing home.
-            </p>
-            <div style={{ '--delay': '180ms' }} className="enter mt-8 flex flex-wrap gap-3">
-              <Button to="/#project">
-                View my project <ArrowRight size={16} aria-hidden="true" />
-              </Button>
-              <Button to="/#contact" variant="secondary">
-                Contact me
-              </Button>
-            </div>
-          </div>
+  const role = useTypewriter(roles)
 
-          {/* Photo */}
-          <div style={{ '--delay': '100ms' }} className="enter order-1 w-36 sm:w-44 lg:order-2 lg:w-full">
-            {profile.photo ? (
-              <img
-                src={profile.photo}
-                alt={`Portrait of ${profile.name}`}
-                className="aspect-[4/5] w-full rounded-xl border border-line object-cover"
-              />
-            ) : (
-              <div className="overflow-hidden rounded-xl border border-dashed border-line">
-                <Placeholder label="[ADD PROFILE PHOTO]" ratio="aspect-[4/5]" bare />
-              </div>
-            )}
+  return (
+    <section id="home" aria-labelledby="hero-title" className="relative overflow-hidden pb-20 pt-14 md:pb-28 md:pt-20">
+      <div className="container-page">
+        {/* Tagline block */}
+        <div className="enter mx-auto flex max-w-3xl flex-col items-center gap-6 text-center sm:flex-row sm:items-end sm:text-left">
+          <Avatar />
+          <div>
+            <p className="text-sm text-muted">
+              Hello! I’m <span className="text-primary">{profile.name}</span>
+            </p>
+            <p className="mt-1 font-display text-[2.25rem] font-semibold leading-[1.08] tracking-[-0.02em] sm:text-5xl">
+              Builds systems from <br className="hidden sm:block" />
+              the <span className="text-gradient">problem</span> up.
+            </p>
           </div>
         </div>
 
-        {/* Quick facts */}
-        <dl style={{ '--delay': '260ms' }} className="enter mt-12 grid gap-3 sm:grid-cols-3">
-          {facts.map((fact) => (
-            <div key={fact.term} className="rounded-xl border border-line p-4">
-              <dt className="font-mono text-xs text-muted">{fact.term}</dt>
-              <dd className="mt-1 text-sm font-medium">{fact.value}</dd>
-            </div>
-          ))}
-        </dl>
+        {/* Intro */}
+        <div style={{ '--delay': '120ms' }} className="enter mx-auto mt-16 max-w-3xl md:mt-20">
+          <h1
+            id="hero-title"
+            aria-label={`I’m ${roles[0]}`}
+            className="font-display text-[1.875rem] font-semibold tracking-[-0.02em] sm:text-[2.5rem]"
+          >
+            <span aria-hidden="true">
+              I’m {role}
+              <span className="caret ml-0.5 font-light text-primary">|</span>
+            </span>
+          </h1>
+          <p className="mt-2 text-muted">
+            Currently studying {profile.field} at{' '}
+            <span className="inline-flex items-center gap-1.5 text-ink">
+              <span className="h-2 w-2 rounded-full bg-primary-strong" aria-hidden="true" />
+              {profile.school}
+            </span>
+          </p>
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-secondary">
+            I analyze problems, design information systems, and build web and mobile applications for real-world
+            needs — starting with an appointment system for a local birthing home.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              to="/#project"
+              className="btn-gradient inline-flex min-h-11 items-center gap-2 rounded-full px-6 text-sm font-semibold transition"
+            >
+              View my project <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+            <Link
+              to="/#contact"
+              className="inline-flex min-h-11 items-center rounded-full border border-line px-6 text-sm font-semibold text-ink transition-colors hover:border-primary-strong hover:text-primary"
+            >
+              Contact me
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   )

@@ -2,7 +2,7 @@
 export default function BentoCard({ as: Tag = 'div', className = '', padded = true, children, ...rest }) {
   return (
     <Tag
-      className={`rounded-xl border border-line bg-surface transition-colors duration-150 hover:border-primary-strong/40 ${
+      className={`glass rounded-2xl transition-colors duration-150 hover:border-primary-strong/40 ${
         padded ? 'p-5 md:p-6' : ''
       } ${className}`}
       {...rest}

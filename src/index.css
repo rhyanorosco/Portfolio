@@ -3,40 +3,23 @@
 /* Dark mode is controlled by a `dark` class on <html> (see useTheme). */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ---------- Color system (Design System v2) ---------- */
-/* Dark is the default theme; light is applied when <html> has no `dark` class. */
-:root {
-  --bg: #f8fafc;            /* 60% background */
-  --surface: #ffffff;       /* 30% cards */
-  --surface-2: #f1f5f9;     /* hover / inset surfaces */
-  --ink: #0f172a;           /* main text */
-  --muted: #475569;         /* secondary text (7.2:1) */
-  --line: #e2e8f0;          /* 1px borders */
-  --primary: #0369a1;       /* 10% accent: links, buttons (5.9:1) */
-  --primary-strong: #0284c7;/* icons, focus rings (non-text) */
-  --primary-ink: #ffffff;   /* text on accent buttons */
-  --badge-bg: #e6f3f9;
-  --badge-ink: #0369a1;
-  --secondary: #334155;
-  --accent: #0369a1;        /* labels (kept for existing components) */
-  --warn: #b45309;          /* "in progress" status */
-  color-scheme: light;
-}
-
+/* ---------- Color system (Design System v3 — deep violet) ---------- */
+/* Single dark theme, inspired by a night-sky purple palette. */
+:root,
 .dark {
-  --bg: #0f172a;
-  --surface: #1e293b;
-  --surface-2: #273449;
-  --ink: #f8fafc;
-  --muted: #94a3b8;
-  --line: #334155;
-  --primary: #38bdf8;
-  --primary-strong: #38bdf8;
-  --primary-ink: #0f172a;
-  --badge-bg: #213b52;
-  --badge-ink: #7dd3fc;
-  --secondary: #cbd5e1;
-  --accent: #38bdf8;
+  --bg: #0b0617;            /* page */
+  --surface: #150d2b;       /* cards */
+  --surface-2: #1f1540;     /* hover / inset */
+  --ink: #f4f0ff;           /* main text */
+  --muted: #a99cc9;         /* secondary text (8:1 on bg) */
+  --line: #2a1f4d;          /* 1px borders */
+  --primary: #b79cff;       /* links, accents (8.9:1 on bg) */
+  --primary-strong: #9b6bff;/* icons, focus rings */
+  --primary-ink: #0b0617;   /* text on accent buttons */
+  --badge-bg: #221748;
+  --badge-ink: #cdbcff;
+  --secondary: #d9cff5;
+  --accent: #b79cff;
   --warn: #fbbf24;
   color-scheme: dark;
 }
@@ -60,6 +43,7 @@
 
 /* ---------- Typography ---------- */
 @theme {
+  --font-display: "Sora", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
 }
@@ -78,7 +62,14 @@
     font-feature-settings: "cv11", "ss01"; /* Inter: straight-sided 1, open digits */
     overflow-x: hidden;
   }
+  body {
+    background-image:
+      radial-gradient(60rem 40rem at 50% -10rem, rgba(124, 58, 237, 0.22), transparent 70%),
+      radial-gradient(40rem 30rem at 100% 40%, rgba(168, 85, 247, 0.08), transparent 70%);
+    background-repeat: no-repeat;
+  }
   h1, h2, h3, h4 {
+    font-family: var(--font-display);
     line-height: 1.2;
     text-wrap: balance;
   }
@@ -111,6 +102,73 @@
   @media (min-width: 48rem) {
     .container-page { padding-inline: 2rem; }
   }
+}
+
+/* ---------- Effects ---------- */
+@layer components {
+  /* Violet gradient text for highlighted words */
+  .text-gradient {
+    background: linear-gradient(90deg, #d8c8ff 0%, #a78bfa 45%, #e879f9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  /* Translucent glass card with a violet edge */
+  .glass {
+    background: linear-gradient(160deg, rgba(42, 27, 92, 0.72), rgba(21, 13, 43, 0.72));
+    border: 1px solid rgba(183, 156, 255, 0.16);
+    box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(14px);
+  }
+  .glass-hover {
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .glass-hover:hover {
+    border-color: rgba(183, 156, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 24px 60px -20px rgba(124, 58, 237, 0.45);
+  }
+  /* Soft purple glow placed behind elements */
+  .glow {
+    position: absolute;
+    border-radius: 9999px;
+    background: radial-gradient(closest-side, rgba(139, 92, 246, 0.45), transparent);
+    filter: blur(20px);
+    pointer-events: none;
+  }
+  .btn-gradient {
+    background: linear-gradient(90deg, #7c3aed, #a855f7);
+    color: #fff;
+    box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.7);
+  }
+  .btn-gradient:hover {
+    filter: brightness(1.1);
+  }
+}
+
+/* Blinking text cursor (hero) */
+@keyframes caret {
+  50% { opacity: 0; }
+}
+.caret {
+  animation: caret 1s steps(1) infinite;
+}
+
+/* Rotating orbit rings (skills section) */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.spin-slow {
+  animation: spin-slow 40s linear infinite;
+}
+.spin-slower {
+  animation: spin-slow 70s linear infinite reverse;
+}
+@keyframes pulse-glow {
+  50% { opacity: 0.65; transform: scale(1.06); }
+}
+.pulse-glow {
+  animation: pulse-glow 5s ease-in-out infinite;
 }
 
 /* ---------- Motion ---------- */
