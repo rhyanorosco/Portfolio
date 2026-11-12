@@ -9,12 +9,14 @@ export default function CertificateCard({ cert }) {
     <BentoCard as="article" padded={false} className="flex flex-col p-3">
       <div className="overflow-hidden rounded-lg border border-line">
         {cert.image ? (
-          <img
-            src={cert.image}
-            alt={`Certificate: ${cert.title}`}
-            loading="lazy"
-            className="aspect-[4/3] w-full object-cover"
-          />
+          <a href={cert.image} target="_blank" rel="noopener noreferrer" aria-label={`Open full certificate: ${cert.title}`}>
+            <img
+              src={cert.image}
+              alt={`Certificate: ${cert.title}`}
+              loading="lazy"
+              className={`w-full bg-white object-cover ${cert.portrait ? 'aspect-[3/4] object-top' : 'aspect-[4/3]'}`}
+            />
+          </a>
         ) : (
           <Placeholder label="[ADD CERTIFICATE IMAGE]" ratio="aspect-[4/3]" bare />
         )}

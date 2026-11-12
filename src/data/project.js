@@ -1,3 +1,5 @@
+import marysAngelCover from '../assets/screenshots/marys-angel-cover.webp'
+
 // Summary used on the Home page. The full case study comes in Phase 4.
 export const featuredProject = {
   slug: 'marys-angel',
@@ -16,5 +18,5 @@ export const featuredProject = {
     'Mobile application',
   ],
   status: '[ADD PROJECT STATUS]',
-  cover: null, // [ADD COVER SCREENSHOT] — import from src/assets/screenshots/
+  cover: marysAngelCover, // Landing page screenshot
 }

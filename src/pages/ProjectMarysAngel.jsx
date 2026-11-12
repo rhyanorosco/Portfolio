@@ -59,7 +59,7 @@ export default function ProjectMarysAngel() {
 
       <div className="mt-10">
         {data.cover ? (
-          <img src={data.cover} alt={`Screenshot of ${data.title}`} className="aspect-video w-full rounded-xl border border-line object-cover" />
+          <img src={data.cover} alt={`Screenshot of ${data.title}`} className="h-auto w-full rounded-xl border border-line" />
         ) : (
           <Placeholder label="[ADD COVER SCREENSHOT]" ratio="aspect-video md:aspect-[21/9]" />
         )}

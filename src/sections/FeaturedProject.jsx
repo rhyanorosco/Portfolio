@@ -9,8 +9,8 @@ function BrowserFrame() {
   return (
     <div className="relative">
       <div className="glow -inset-10 opacity-60" aria-hidden="true" />
-      <div className="relative overflow-hidden rounded-xl border border-white/10 bg-[#f5f3ff] shadow-2xl shadow-black/60">
-        <div className="flex items-center gap-1.5 border-b border-black/5 bg-white px-3 py-2" aria-hidden="true">
+      <div className="relative overflow-hidden rounded-xl bg-black shadow-2xl shadow-black/60">
+        <div className="flex items-center gap-1.5 border-b border-white/10 bg-black px-3 py-2" aria-hidden="true">
           <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
           <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
           <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
@@ -20,7 +20,7 @@ function BrowserFrame() {
             src={project.cover}
             alt={`Screenshot of ${project.title}`}
             loading="lazy"
-            className="aspect-[16/10] w-full object-cover"
+            className="block h-auto w-full"
           />
         ) : (
           <Placeholder label="[ADD COVER SCREENSHOT]" ratio="aspect-[16/10]" bare className="!bg-surface" />
@@ -70,7 +70,7 @@ export default function FeaturedProject() {
           </div>
 
           {/* Screenshot */}
-          <div className="lg:col-span-6 lg:pl-6">
+          <div className="lg:col-span-6 lg:pl-16 xl:-mr-8">
             <BrowserFrame />
           </div>
         </div>
