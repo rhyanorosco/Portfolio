@@ -29,7 +29,7 @@ export default function Layout() {
         Skip to content
       </a>
       <Navbar />
-      <main id="main" tabIndex={-1} className="flex-1 focus:outline-none">
+      <main id="main" tabIndex={-1} className="flex-1 overflow-x-clip focus:outline-none">
         <Outlet />
       </main>
       <Footer />

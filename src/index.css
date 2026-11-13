@@ -51,6 +51,7 @@
 /* ---------- Base ---------- */
 @layer base {
   html {
+    overflow-x: clip; /* nothing can make the page wider than the screen */
     scroll-behavior: smooth;
     scroll-padding-top: 5rem; /* room for the sticky navbar */
     -webkit-text-size-adjust: 100%;
@@ -60,7 +61,8 @@
     font-size: 1rem;
     line-height: 1.5;
     font-feature-settings: "cv11", "ss01"; /* Inter: straight-sided 1, open digits */
-    overflow-x: hidden;
+    overflow-x: hidden; /* older browsers */
+    overflow-x: clip;
   }
   body {
     background-image:

@@ -19,12 +19,13 @@ export default function NetworkBackground() {
 
     const setup = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
-      width = window.innerWidth
-      height = window.innerHeight
-      canvas.width = width * dpr
-      canvas.height = height * dpr
-      canvas.style.width = `${width}px`
-      canvas.style.height = `${height}px`
+      // Size from the canvas itself (it fills the screen with CSS), not window.innerWidth,
+      // which on phones can be wider than the screen and make the page slide sideways.
+      const rect = canvas.getBoundingClientRect()
+      width = rect.width
+      height = rect.height
+      canvas.width = Math.round(width * dpr)
+      canvas.height = Math.round(height * dpr)
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
       // About one dot per 26,000 px² (≈50 on a laptop, ≈15 on a phone)
       const count = Math.round((width * height) / 26000)
@@ -102,5 +103,5 @@ export default function NetworkBackground() {
     }
   }, [])
 
-  return <canvas ref={canvasRef} aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10" />
+  return <canvas ref={canvasRef} aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 block h-full w-full" />
 }

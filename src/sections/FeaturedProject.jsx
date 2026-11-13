@@ -8,7 +8,7 @@ import { featuredProject as project, moreProjects } from '../data/project'
 function BrowserFrame() {
   return (
     <div className="relative">
-      <div className="glow -inset-10 opacity-60" aria-hidden="true" />
+      <div className="glow -inset-4 opacity-60 sm:-inset-10" aria-hidden="true" />
       <div className="relative overflow-hidden rounded-xl bg-black shadow-2xl shadow-black/60">
         <div className="flex items-center gap-1.5 border-b border-white/10 bg-black px-3 py-2" aria-hidden="true">
           <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
