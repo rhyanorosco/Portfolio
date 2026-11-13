@@ -12,9 +12,9 @@ export default function Timeline({ items }) {
           <p className={`font-mono text-xs text-muted ${isMissing(item.period) ? 'italic' : ''}`}>{item.period}</p>
           <h3 className="mt-1 text-xl font-medium">{item.title}</h3>
           <p className="text-muted">{item.subtitle}</p>
-          {item.details?.length > 0 && (
+          {item.details?.filter((d) => !isMissing(d)).length > 0 && (
             <ul className="mt-3 list-disc space-y-1 pl-5 text-sm">
-              {item.details.map((detail) => (
+              {item.details.filter((d) => !isMissing(d)).map((detail) => (
                 <li key={detail} className={isMissing(detail) ? 'italic text-muted' : ''}>
                   {detail}
                 </li>

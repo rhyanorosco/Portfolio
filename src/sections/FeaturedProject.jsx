@@ -32,16 +32,15 @@ function BrowserFrame() {
 
 export default function FeaturedProject() {
   return (
-    <Section id="project" labelledBy="project-title">
+    <Section id="project" labelledBy="project-title" className="pt-6 md:pt-8">
       <div className="mx-auto max-w-5xl">
         <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-0">
           {/* Text + overlapping card */}
           <div className="relative z-10 lg:col-span-6">
-            <p className="text-sm text-primary">{project.label}</p>
-            <h2 id="project-title" className="mt-1 text-xl font-semibold leading-snug md:text-2xl">
+            <p className="text-xs font-medium uppercase tracking-[0.12em] text-primary">{project.label}</p>
+            <h2 id="project-title" className="mt-3 text-xl font-semibold leading-snug md:text-2xl">
               AN AUTOMATED WEB AND MOBILE APPOINTMENT SYSTEM FOR MARY’S ANGEL BIRTHING HOME IN TAYSAN, LEGAZPI CITY
             </h2>
-            <p className="mt-2 text-sm text-muted">{project.location}</p>
 
             <div className="glass mt-6 rounded-xl p-5 md:p-6 lg:-mr-24">
               <p className="text-[15px] leading-relaxed text-secondary">{project.summary}</p>

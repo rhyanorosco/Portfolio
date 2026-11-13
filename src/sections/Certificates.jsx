@@ -16,7 +16,7 @@ export default function Certificates() {
 
   return (
     <Section id="certificates" labelledBy="certificates-title">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-5xl">
       <SectionTitle id="certificates-title" label="Certificates" title="Certificates" />
       <div className="mt-10 grid gap-3 sm:grid-cols-2 md:gap-4 md:grid-cols-3">
         {items.map((cert, i) => (

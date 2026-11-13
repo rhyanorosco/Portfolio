@@ -37,7 +37,7 @@ export default function Hero() {
     <section id="home" aria-labelledby="hero-title" className="relative overflow-hidden pb-20 pt-14 md:pb-28 md:pt-20">
       <div className="container-page">
         {/* Tagline block */}
-        <div className="enter mx-auto flex max-w-3xl flex-col items-center gap-6 text-center sm:flex-row sm:items-end sm:text-left">
+        <div className="enter mx-auto flex max-w-5xl flex-col items-center gap-6 text-center sm:flex-row sm:items-end sm:text-left">
           <Avatar />
           <div>
             <p className="text-sm text-muted">
@@ -51,7 +51,7 @@ export default function Hero() {
         </div>
 
         {/* Intro */}
-        <div style={{ '--delay': '120ms' }} className="enter mx-auto mt-16 max-w-3xl md:mt-20">
+        <div style={{ '--delay': '120ms' }} className="enter mx-auto mt-16 max-w-5xl md:mt-20">
           <h1
             id="hero-title"
             aria-label={`I’m ${roles[0]}`}
@@ -62,16 +62,10 @@ export default function Hero() {
               <span className="caret ml-0.5 font-light text-primary">|</span>
             </span>
           </h1>
-          <p className="mt-2 text-muted">
-            Currently studying {profile.field} at{' '}
-            <span className="inline-flex items-center gap-1.5 text-ink">
-              <span className="h-2 w-2 rounded-full bg-primary-strong" aria-hidden="true" />
-              {profile.school}
-            </span>
-          </p>
+
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-secondary">
-            I analyze problems, design information systems, and build web and mobile applications for real-world
-            needs — starting with an appointment system for a local birthing home.
+            I analyze problems, design information systems, and develop web and mobile applications to meet real-world needs, 
+            beginning with an appointment system for a local birthing home.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link

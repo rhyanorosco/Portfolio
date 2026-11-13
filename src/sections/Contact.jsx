@@ -10,10 +10,11 @@ export default function Contact() {
   ]
 
   return (
-    <Section id="contact" labelledBy="contact-title">
-      <div className="mx-auto max-w-4xl">
-        <h2 id="contact-title" className="text-2xl font-semibold md:text-[2rem]">
-          Contact
+    <Section id="contact" labelledBy="contact-title" className="pt-6 md:pt-8">
+      <div className="mx-auto max-w-5xl">
+        <p className="text-xs font-medium uppercase tracking-[0.12em] text-primary">Contact</p>
+        <h2 id="contact-title" className="mt-3 text-2xl font-semibold md:text-[2rem]">
+          Get in touch
         </h2>
         <p className="mt-4 max-w-lg text-muted">
           Interested in working together or learning more about my projects? Feel free to reach out about internships,

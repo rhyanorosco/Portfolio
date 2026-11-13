@@ -39,9 +39,9 @@ export default function Navbar() {
         solid ? 'border-b border-line/70 bg-bg/80 backdrop-blur-md' : 'border-b border-transparent'
       }`}
     >
-      <nav aria-label="Main" className="container-page flex h-16 items-center justify-between gap-4">
+      <nav aria-label="Main" className="mx-auto flex h-16 w-full max-w-[68rem] items-center justify-between gap-4 px-4 md:px-8">
         <Link to="/" aria-label="Rhyan Orosco — home" className="text-ink transition-colors hover:text-primary">
-          <Logo size={30} />
+          <Logo size={34} />
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">

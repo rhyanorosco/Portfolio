@@ -95,9 +95,10 @@ export default function Skills() {
   const tools = skillGroups.flatMap((g) => g.items.map((item) => ({ item, group: g.title })))
 
   return (
-    <Section id="skills" labelledBy="skills-title" className="overflow-hidden">
+    <Section id="skills" labelledBy="skills-title" className="overflow-hidden pt-6 md:pt-8">
       <div className="mx-auto max-w-3xl text-center">
-        <h2 id="skills-title" className="text-xl font-semibold leading-snug md:text-2xl">
+        <p className="text-xs font-medium uppercase tracking-[0.12em] text-primary">Skills</p>
+        <h2 id="skills-title" className="mt-3 text-xl font-semibold leading-snug md:text-2xl">
           The tools I use to <span className="text-gradient">plan, build, and ship</span> systems.
         </h2>
         <p className="mt-2 text-sm text-muted">Frontend, backend, database, and everyday tools.</p>
