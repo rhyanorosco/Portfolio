@@ -1,14 +1,21 @@
-import { ArrowUpRight, Github } from 'lucide-react'
+import { ArrowLeft, ArrowUpRight, Github } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import Placeholder from '../components/Placeholder.jsx'
 import { moreProjects } from '../data/project'
 
 export default function Projects() {
   return (
-    <section aria-labelledby="projects-title" className="py-16 md:py-24">
+    <section aria-labelledby="projects-title" className="py-10 md:py-14">
       <div className="container-page">
         <div className="mx-auto max-w-5xl">
-          <p className="text-sm text-primary">Projects</p>
-          <h1 id="projects-title" className="mt-1 text-3xl font-semibold md:text-[2.5rem]">
+          <Link
+            to="/#project"
+            className="inline-flex min-h-10 items-center gap-2 rounded-full border border-line px-4 text-sm font-semibold text-ink transition-colors hover:border-primary-strong hover:text-primary"
+          >
+            <ArrowLeft size={16} aria-hidden="true" /> Back to project
+          </Link>
+          <p className="mt-10 text-xs font-medium uppercase tracking-[0.12em] text-primary">Projects</p>
+          <h1 id="projects-title" className="mt-3 text-3xl font-semibold md:text-[2.5rem]">
             More projects
           </h1>
           <p className="mt-3 max-w-xl text-muted">Other systems and apps I’ve worked on.</p>

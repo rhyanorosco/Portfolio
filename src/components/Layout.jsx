@@ -6,6 +6,8 @@ import NetworkBackground from './NetworkBackground.jsx'
 
 export default function Layout() {
   const { pathname, hash, key } = useLocation()
+  // The More projects page has its own Back button instead of the navbar.
+  const showNavbar = pathname !== '/projects'
 
   // Scroll to #section links (also from other pages); otherwise start new pages at the top.
   useEffect(() => {
@@ -28,7 +30,7 @@ export default function Layout() {
       >
         Skip to content
       </a>
-      <Navbar />
+      {showNavbar && <Navbar />}
       <main id="main" tabIndex={-1} className="flex-1 overflow-x-clip focus:outline-none">
         <Outlet />
       </main>
