@@ -1,5 +1,6 @@
 import marysAngelCover from '../assets/screenshots/marys-angel-cover.webp'
 import digitalClockCover from '../assets/screenshots/live-digital-clock.webp'
+import buildtrackCover from '../assets/screenshots/buildtrack-ph.webp'
 
 // Summary used on the Home page. The full case study comes in Phase 4.
 export const featuredProject = {
@@ -35,6 +36,14 @@ export const featuredProject = {
 //   github: 'https://github.com/rhyanorosco/repo-name', // optional
 // },
 export const moreProjects = [
+  {
+    title: 'BuildTrack PH',
+    summary:
+      'A mobile app for Filipino homeowners to plan and track the cost of building a house. It keeps a budget, materials, equipment, manpower and expenses in one place, compares the budget with actual spending, shows progress by construction phase, warns when something needs attention, and exports cost reports as PDF.',
+    tags: ['React Native', 'Expo', 'JavaScript'],
+    cover: buildtrackCover,
+    github: 'https://github.com/rhyanorosco/Buildtrack-PH',
+  },
   {
     title: 'Live Digital Clock',
     summary:
